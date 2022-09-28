@@ -1,0 +1,6 @@
+<div class="body-content-anime">
+  <router-outlet></router-outlet>
+</div>
+<div class="progress fixed-bottom" *ngIf="progressBar$ | async">
+  <div class="progress-bar progress-bar-striped progress-bar-animated border border-0" aria-valuemax="100" style="width: 100%"></div>
+</div>

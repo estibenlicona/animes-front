@@ -1,0 +1,42 @@
+<div *ngIf="(animes$ | async)!.length === 0" class="no-records">
+  <h5>No records found.</h5>
+</div>
+<swiper
+    *ngIf="(animes$ | async)!.length > 0"
+    [slidesPerView]="5"
+    [spaceBetween]="30"
+    [slidesPerGroup]="3"
+    [loop]="true"
+    [loopFillGroupWithBlank]="true"
+    [pagination]="{
+      clickable: true
+    }"
+    [navigation]="true"
+    [breakpoints]="{
+      '@0.00': {
+        slidesPerView: 1,
+        spaceBetween: 10
+      },
+      '@0.75': {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      '@1.00': {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      '@1.50': {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      '@1.9': {
+        slidesPerView: 5,
+        spaceBetween: 30
+      }
+    }"
+    class="mySwiper"
+  >
+    <ng-template swiperSlide *ngFor="let anime of animes$ | async; trackBy: trackAnimes">
+      <app-card [model]="anime" class="item shadow-sm"></app-card>
+    </ng-template>
+  </swiper>

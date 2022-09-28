@@ -1,0 +1,11 @@
+<div class="content-img">
+  <img [src]="model.image" class="card-img" alt="...">
+</div>
+<div class="content-footer">
+  <p class="card-text text-start fw-lighter">
+    <span class="material-icons" *ngIf="model.recommend">star</span>&nbsp;{{ model.recommend }}
+  </p>
+  <h5 class="card-title text-start text-break">{{ model.title }}</h5>
+
+</div>
+
